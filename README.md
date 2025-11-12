@@ -54,6 +54,26 @@ Alternatively you can use
 
 - `POST /jobs/create-and-run`: Combined create + execute flow. This can be dangerous if you want to confirm the cost of the job.
 
+## Job payload
+
+A summary of the job_payload
+
+job_payload = {
+    "client_sheet_link": SHEET_LINK,
+    "name": "The name of the job",
+    "scope": "This helps the AI understand the context of the categorisation. It can be helpful to give examples of categories. The more precise you are, the more likely you will get good results.",
+    "job_type": "catify" , # catify|generate_categories|categorise
+    "categorisation_model_level": "normal", # normal|economy
+    "data_column": "The column with your data",
+    "response_column": "The new column you want to create", # Only for catify|categorise
+    "worksheet_name": "The worksheet to enter categories into", # Optional for catify, required for generate_categories
+    "num_categories": 5, # Only for catify or generate_categories
+    "overwrite": False # If you want to be able to overwrite columns that are already there
+}
+
+
+
+
 ## `/jobs` Endpoints
 
 All endpoints below expect a valid `Authorization` header using one of the formats above. The router is registered under the `/jobs` prefix.
