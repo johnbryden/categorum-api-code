@@ -1,4 +1,4 @@
-# Categorum API Smoke Test
+# Categorum API 
 
 This repository provides a minimal client for exercising the Categorum Jobs API.
 
@@ -58,7 +58,7 @@ Alternatively you can use
 
 A summary of the job_payload
 
-job_payload = {
+`job_payload = {
     "client_sheet_link": SHEET_LINK,
     "name": "The name of the job",
     "scope": "This helps the AI understand the context of the categorisation. It can be helpful to give examples of categories. The more precise you are, the more likely you will get good results.",
@@ -69,9 +69,7 @@ job_payload = {
     "worksheet_name": "The worksheet to enter categories into", # Optional for catify, required for generate_categories
     "num_categories": 5, # Only for catify or generate_categories
     "overwrite": False # If you want to be able to overwrite columns that are already there
-}
-
-
+}`
 
 
 ## `/jobs` Endpoints
