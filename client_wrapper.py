@@ -50,7 +50,20 @@ class JobsApiClient:
             data=data,
             timeout=effective_timeout,
         )
-        response.raise_for_status()
+
+        try:
+            response.raise_for_status()
+        except requests.HTTPError as exc:
+            error_payload: Any
+            try:
+                error_payload = response.json()
+            except ValueError:
+                error_payload = response.text
+            raise requests.HTTPError(
+                f"{exc} | Response body: {error_payload}",
+                response=response,
+                request=exc.request,
+            ) from None
 
         if response.headers.get("content-type", "").startswith("application/json"):
             return response.json()
