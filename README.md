@@ -15,6 +15,13 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+If you want to run the `test_job_submission.ipynb` notebook you can either use vscode/cursor 
+or install jupyter with:
+```
+pip install jupyter
+```
+
+
 Ensure a `.env` file is available with:
 
 - `API_KEY`
@@ -72,6 +79,17 @@ job_payload = {
     "overwrite": False  # If you want to be able to overwrite columns that are already there
 }
 ```
+
+## Google Drive vs Buckets
+
+It is now possible to work with buckets instead of google sheets. The client_sheet_link must be of the format `gs://my-bucket/my-path/etc/my-file`.
+
+It will load csv, parquet, feather or xls files. 
+
+Categorised data is output as `<filename>-column-<response_column>.suffix` where suffix/format is the same as the input file.
+
+Categories are input/output as `<filename>-<worksheet_name>.csv` unless worksheet_name is given as a specific bucket file name.
+
 
 ## `/jobs` Endpoints
 
