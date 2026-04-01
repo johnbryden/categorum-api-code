@@ -70,7 +70,7 @@ job_payload = {
     "client_sheet_link": SHEET_LINK,
     "name": "The name of the job",
     "scope": "This helps the AI understand the context of the categorisation. It can be helpful to give examples of categories. The more precise you are, the more likely you will get good results.",
-    "job_type": "catify",  # catify|generate_categories|categorise
+    "job_type": "catify",  # catify|generate_categories|categorise|filter
     "categorisation_model_level": "normal",  # normal|economy
     "data_column": "The column with your data",
     "response_column": "The new column you want to create",  # Only for catify|categorise
