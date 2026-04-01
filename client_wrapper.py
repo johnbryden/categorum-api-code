@@ -63,7 +63,7 @@ class JobsApiClient:
                 f"{exc} | Response body: {error_payload}",
                 response=response,
                 request=exc.request,
-            ) from None
+            ) from exc
 
         if response.headers.get("content-type", "").startswith("application/json"):
             return response.json()
@@ -102,6 +102,3 @@ class JobsApiClient:
             headers=headers,
             timeout=timeout,
         )
-
-
-jobs_client: Optional[JobsApiClient] = None
